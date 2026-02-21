@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. Preloader (Runs on all pages) ---
+  // 1. Preloader
   const preloader = document.getElementById("preloader");
   if (preloader) {
     window.addEventListener("load", () => {
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 2. Mobile Menu (Runs on all pages) ---
+  // 2. Mobile Menu
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
   if (hamburger && navLinks) {
@@ -16,10 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.toggle("active");
       hamburger.classList.toggle("toggle");
     });
+
+    // Close menu when clicking a link
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("toggle");
+      });
+    });
   }
 
-  // --- 3. Hero Slider (SAFETY CHECK ADDED) ---
-  // Only run this if the slider actually exists on the current page
+  // 3. Hero Slider
   const heroSlider = document.querySelector(".hero-slider");
   if (heroSlider) {
     const slides = document.querySelectorAll(".slide");
@@ -34,26 +41,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (i === index) slide.classList.add("active");
       });
     }
-
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slides.length;
       showSlide(currentSlide);
     }
-
     function prevSlide() {
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       showSlide(currentSlide);
     }
-
     if (nextBtn && prevBtn) {
       nextBtn.addEventListener("click", nextSlide);
       prevBtn.addEventListener("click", prevSlide);
     }
-
-    // Auto Play
     let sliderAuto = setInterval(nextSlide, slideInterval);
-
-    // Pause on hover
     heroSlider.addEventListener("mouseenter", () => clearInterval(sliderAuto));
     heroSlider.addEventListener(
       "mouseleave",
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // --- 4. Scroll Animation (Runs on all pages) ---
+  // 4. Scroll Animation
   const reveals = document.querySelectorAll(
     ".reveal, .reveal-left, .reveal-right, .reveal-bottom",
   );
@@ -77,11 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       { threshold: 0.15 },
     );
-
     reveals.forEach((el) => revealOnScroll.observe(el));
   }
 
-  // --- 5. Number Counter (Runs only if counters exist) ---
+  // 5. Number Counter
   const counters = document.querySelectorAll(".counter");
   if (counters.length > 0) {
     const counterObserver = new IntersectionObserver(
@@ -91,11 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const counter = entry.target;
             const target = +counter.getAttribute("data-target");
             const speed = 200;
-
             const updateCount = () => {
               const count = +counter.innerText;
               const inc = target / speed;
-
               if (count < target) {
                 counter.innerText = Math.ceil(count + inc);
                 setTimeout(updateCount, 20);
@@ -110,38 +107,27 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       { threshold: 0.5 },
     );
-
     counters.forEach((counter) => counterObserver.observe(counter));
   }
 
-  // --- 6. Accordion (Fixed for About Page) ---
+  // 6. Accordion
   const accHeaders = document.querySelectorAll(".accordion-header");
   if (accHeaders.length > 0) {
     accHeaders.forEach((header) => {
       header.addEventListener("click", () => {
-        // Close other open items (Optional - remove this loop if you want multiple open at once)
-        const currentlyActive = document.querySelector(
-          ".accordion-item.active",
-        );
-        if (currentlyActive && currentlyActive !== header.parentElement) {
-          currentlyActive.classList.remove("active");
-        }
-
-        // Toggle current item
         const item = header.parentElement;
         item.classList.toggle("active");
       });
     });
   }
 
-  // --- 7. Leaflet Map (Run ONLY if map div exists AND L is loaded) ---
+  // 7. Map Initialization
   const mapElement = document.getElementById("map");
-  // We check if 'L' is defined to ensure Leaflet library is loaded
   if (mapElement && typeof L !== "undefined") {
-    var map = L.map("map", {
-      scrollWheelZoom: false,
-    }).setView([22.5937, 78.9629], 5);
-
+    var map = L.map("map", { scrollWheelZoom: false }).setView(
+      [22.5937, 78.9629],
+      5,
+    );
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -158,7 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
       shadowSize: [41, 41],
     });
 
-    // Add Markers
     L.marker([24.8829, 74.623], { icon: orangeIcon })
       .addTo(map)
       .bindPopup("<b>Headquarters</b><br>Chittorgarh, Rajasthan");
