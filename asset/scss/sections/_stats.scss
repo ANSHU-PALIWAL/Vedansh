@@ -71,3 +71,17 @@
     text-transform: uppercase;
   }
 }
+
+@media screen and (max-width: 600px) {
+  
+  .stats-grid {
+    gap: 20px 20px;
+  }
+  .stat-item {
+    i,
+    h3,
+    span {
+      font-size: 2rem;
+    }
+  }
+}

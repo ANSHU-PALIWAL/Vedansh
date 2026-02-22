@@ -3,8 +3,16 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   margin-top: 50px;
+  @media screen and (max-width: 600px) {
+    margin-top: unset;
+    gap: 10px;
+  }
 }
-
+.features-grid {
+  @media screen and (max-width: 600px) {
+    margin-top: 2rem;
+  }
+}
 .feature-box {
   background: #fff;
   padding: 20px;
@@ -20,6 +28,10 @@
     color: $accent;
     font-size: 1.2rem;
   }
+
+  @media screen and (max-width: 600px) {
+    padding: 15px 20px;
+  }
 }
 
 .service-card {
@@ -29,6 +41,10 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: $transition;
   border-top: 4px solid transparent;
+
+  @media screen and (max-width: 600px) {
+    padding: 20px 30px;
+  }
 
   &:hover {
     transform: translateY(-5px);
@@ -49,6 +65,9 @@
   font-size: 2rem;
   color: $primary;
   margin-bottom: 20px;
+  @media screen and (max-width: 600px) {
+    margin-bottom: 10px;
+  }
 }
 
 /* Equipment Parallax */
@@ -74,6 +93,10 @@
   position: relative;
   z-index: 1;
   text-align: center;
+
+  h2 {
+    color: #fff;
+  }
 
   p {
     margin-bottom: 40px;

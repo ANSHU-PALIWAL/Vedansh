@@ -1,3 +1,6 @@
+.about-us-section {
+  overflow: hidden;
+}
 .about-container {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -7,6 +10,10 @@
     grid-template-columns: 1fr;
     gap: 40px;
     text-align: center;
+  }
+
+  .about-leadership {
+    width: 100%;
   }
 }
 

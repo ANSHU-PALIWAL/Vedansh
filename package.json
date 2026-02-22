@@ -1,0 +1,19 @@
+{
+  "name": "vedansh",
+  "version": "1.0.0",
+  "description": "https://anshu-paliwal.github.io/Vedansh/",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch asset/scss/style.scss:asset/css/style.css --no-source-map",
+    "build": "sass asset/scss/style.scss:asset/css/style.css --style compressed --no-source-map"
+  },
+  "keywords": [
+    "Vedansh",
+    "Infra"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.97.3"
+  }
+}
