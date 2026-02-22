@@ -1,0 +1,20 @@
+:root {
+  --primary: #0d2c56; /* Navy Blue */
+  --accent: #f57c00; /* Orange */
+  --text-dark: #222;
+  --text-light: #666;
+  --bg-light: #f8f9fa;
+  --white: #ffffff;
+  --transition: all 0.4s ease;
+}
+
+$primary: var(--primary);
+$accent: var(--accent);
+$text-dark: var(--text-dark);
+$text-light: var(--text-light);
+$bg-light: var(--bg-light);
+$white: var(--white);
+$transition: var(--transition);
+
+$font-primary: "Montserrat", sans-serif;
+$font-body: "Open Sans", sans-serif;
