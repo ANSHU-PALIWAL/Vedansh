@@ -1,205 +1,228 @@
 /* --- HERO SECTION (Premium & Professional) --- */
 .hero-slider {
-    position: relative;
-    width: 100%;
-    /* Dynamic viewport height for mobile browsers */
-    height: 100vh;
-    height: 100svh;
-    overflow: hidden;
-    margin-top: 80px; /* Header offset */
-    background-color: #0d2c56; /* Fallback brand color */
+  position: relative;
+  width: 100%;
+  /* Dynamic viewport height for mobile browsers */
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  margin-top: 80px; /* Header offset */
+  background-color: #0d2c56; /* Fallback brand color */
 
-    @media (max-width: 768px) {
-        height: 90svh; /* Slightly shorter on mobile */
-    }
+  @media (max-width: 768px) {
+    height: 90svh; /* Slightly shorter on mobile */
+  }
 }
 
 .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother fade */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  /* Professional Overlay: Gradient for better text readability */
+  &::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother fade */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* Darker at bottom/center to make text pop, lighter at top */
+    background: linear-gradient(
+      to bottom,
+      rgba(13, 44, 86, 0.6) 0%,
+      rgba(13, 44, 86, 0.85) 100%
+    );
     z-index: 1;
+  }
 
-    /* Professional Overlay: Gradient for better text readability */
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        /* Darker at bottom/center to make text pop, lighter at top */
-        background: linear-gradient(to bottom, rgba(13, 44, 86, 0.6) 0%, rgba(13, 44, 86, 0.85) 100%);
-        z-index: 1;
-    }
-
-    &.active {
-        opacity: 1;
-        z-index: 2;
-    }
+  &.active {
+    opacity: 1;
+    z-index: 2;
+  }
 }
 
 .slide-content {
-    position: relative;
-    z-index: 3;
-    color: #fff;
-    max-width: 850px;
-    width: 100%;
-    padding: 0 25px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers button and text */
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  max-width: 850px;
+  width: 100%;
+  padding: 0 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers button and text */
 
-    /* Staggered Animation Entry */
-    h1, p, .btn-group {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease-out;
-    }
+  /* Staggered Animation Entry */
+  h1,
+  p,
+  .btn-group {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
 }
 
 /* Active State Animations */
 .slide.active {
-    h1 { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-    p  { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
-    .btn-group { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
+  h1 {
+    transition-delay: 0.3s;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  p {
+    transition-delay: 0.5s;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .btn-group {
+    transition-delay: 0.7s;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- TYPOGRAPHY --- */
 .slide h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: -1px; /* Tighter, more modern look */
-    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -1px; /* Tighter, more modern look */
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 
-    /* Highlight word styling (optional, if you wrap words in spans later) */
-    span { color: $accent; }
+  span {
+    color: $accent;
+  }
 
-    /* Tablet */
-    @media (max-width: 1024px) {
-        font-size: 2.8rem;
-    }
+  @media (max-width: 1024px) {
+    font-size: 2.8rem;
+  }
 
-    /* Mobile - Clean & Readable */
-    @media (max-width: 768px) {
-        font-size: 2rem; 
-        line-height: 1.3;
-        margin-bottom: 15px;
-    }
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 15px;
+  }
 }
 
 .slide p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 35px;
-    color: rgba(255, 255, 255, 0.9); /* Softer white */
-    max-width: 700px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  color: rgba(255, 255, 255, 0.9); /* Softer white */
+  max-width: 700px;
 
-    @media (max-width: 768px) {
-        font-size: 1rem;
-        margin-bottom: 30px;
-        line-height: 1.5;
-    }
+  @media (max-width: 768px) {
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
 }
 
 /* --- BUTTON GROUP --- */
 .btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
 
-    /* Mobile: Stack buttons but keep them constrained */
-    @media (max-width: 480px) {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        
-        /* Fix the "Huge Pill" look */
-        .btn {
-            width: auto; /* Don't stretch full width */
-            min-width: 200px; /* Minimum clickable area */
-            padding: 12px 30px; /* Balanced padding */
-        }
+  @media (max-width: 768px) {
+    .btn {
+      font-size: 14px;
     }
+  }
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    .btn {
+      width: auto;
+      min-width: 200px;
+      padding: 12px 30px;
+    }
+  }
 }
 
 /* --- SLIDER CONTROLS (ARROWS) --- */
 .slider-controls div {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    /* Glassmorphism Effect */
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  /* Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $accent; /* Orange on hover */
+    border-color: $accent;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(245, 124, 0, 0.4);
+  }
+
+  /* Mobile Adjustment */
+  @media (max-width: 768px) {
+    /* Move to bottom right */
+    top: auto;
+    bottom: 30px;
+    transform: none; /* Remove centering transform */
+
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.4); /* Darker on mobile for contrast */
+    border: none;
 
     &:hover {
-        background: $accent; /* Orange on hover */
-        border-color: $accent;
-        transform: translateY(-50%) scale(1.1);
-        box-shadow: 0 5px 15px rgba(245, 124, 0, 0.4);
+      transform: scale(1.1); /* Simple scale on mobile touch */
     }
-
-    /* Mobile Adjustment */
-    @media (max-width: 768px) {
-        /* Move to bottom right */
-        top: auto;
-        bottom: 30px;
-        transform: none; /* Remove centering transform */
-        
-        width: 45px;
-        height: 45px;
-        background: rgba(0, 0, 0, 0.4); /* Darker on mobile for contrast */
-        border: none;
-
-        &:hover {
-            transform: scale(1.1); /* Simple scale on mobile touch */
-        }
-    }
+  }
 }
 
 .prev-slide {
-    left: 40px;
-    
-    @media (max-width: 768px) {
-        left: auto;
-        right: 80px; /* Position next to Next arrow */
-    }
+  left: 40px;
+
+  @media (max-width: 768px) {
+    left: auto;
+    right: 80px; /* Position next to Next arrow */
+  }
 }
 
 .next-slide {
-    right: 40px;
+  right: 40px;
 
-    @media (max-width: 768px) {
-        right: 25px;
-    }
+  @media (max-width: 768px) {
+    right: 25px;
+  }
 }

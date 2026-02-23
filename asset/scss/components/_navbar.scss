@@ -1,197 +1,209 @@
 /* --- NAVBAR STYLES (Updated for Image Logo) --- */
 .header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: $transition;
-    height: 80px;
-    display: flex;
-    align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: $transition;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* LOGO - Image Based */
 .logo {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    z-index: 2002; /* IMPORTANT: Above the mobile menu overlay */
-    position: relative;
-    padding: 5px 0; /* Safety padding */
+  display: flex;
+  align-items: center;
+  height: 100%;
+  z-index: 2002; /* IMPORTANT: Above the mobile menu overlay */
+  position: relative;
+  padding: 5px 0; /* Safety padding */
 
-    img {
-        width: auto;
-        height: auto;
-        max-height: 65px; /* Perfect fit for 80px header on Desktop */
-        object-fit: contain;
-        transition: $transition;
-    }
+  img {
+    width: auto;
+    height: auto;
+    max-height: 65px; /* Perfect fit for 80px header on Desktop */
+    object-fit: contain;
+    transition: $transition;
+  }
 }
 
 /* DESKTOP NAVIGATION */
 .nav-links {
-    display: flex;
-    gap: 30px;
-    align-items: center;
+  display: flex;
+  gap: 30px;
+  align-items: center;
 
-    a {
-        color: $text-dark;
-        font-weight: 600;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        position: relative;
-        transition: $transition;
+  a {
+    color: $text-dark;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    position: relative;
+    transition: $transition;
 
-        &:hover,
-        &.active {
-            color: $accent;
-        }
+    &:hover,
+    &.active {
+      color: $accent;
     }
+  }
 }
 
 .btn-nav {
-    background: $primary;
-    color: #fff !important;
-    padding: 10px 25px;
-    border-radius: 5px;
-    transition: $transition;
+  background: $primary;
+  color: #fff !important;
+  padding: 10px 25px;
+  border-radius: 5px;
+  transition: $transition;
 
-    &:hover {
-        background: $accent;
-    }
+  &:hover {
+    background: $accent;
+  }
 }
 
 /* HAMBURGER ICON (Hidden on Desktop) */
 .hamburger {
-    display: none;
-    cursor: pointer;
-    z-index: 2002; /* IMPORTANT: Above the menu overlay */
-    width: 30px;
-    height: 22px;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    transition: all 0.3s ease;
+  display: none;
+  cursor: pointer;
+  z-index: 2002; /* IMPORTANT: Above the menu overlay */
+  width: 30px;
+  height: 22px;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.3s ease;
+
+  @media screen and (max-width: 600px) {
+    width: 20px;
+    height: 16px;
+  }
 }
 
 .bar {
-    width: 100%;
-    height: 3px;
-    background-color: $text-dark;
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
+  width: 100%;
+  height: 3px;
+  background-color: $text-dark;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
 }
 
 /* --- RESPONSIVE BREAKPOINTS --- */
 
 /* Tablet & Mobile */
 @media (max-width: 992px) {
-    
-    /* Adjust Logo Size for Mobile */
-    .logo img {
-        max-height: 55px; /* Slightly smaller for mobile screens */
-    }
+  /* Adjust Logo Size for Mobile */
+  .logo img {
+    max-height: 55px; /* Slightly smaller for mobile screens */
+  }
 
-    /* Show Hamburger */
-    .hamburger {
-        display: flex;
-    }
+  /* Show Hamburger */
+  .hamburger {
+    display: flex;
+  }
 
-    /* Mobile Menu Overlay */
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Start hidden off-screen */
-        width: 100%;
-        height: 100vh;
-        background-color: $primary; /* Dark Navy Background */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-        z-index: 2001; /* Covers the screen */
-        box-shadow: none;
-    }
+  /* Mobile Menu Overlay */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start hidden off-screen */
+    width: 100%;
+    height: 100vh;
+    background-color: $primary; /* Dark Navy Background */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 2001; /* Covers the screen */
+    box-shadow: none;
+  }
 
-    /* Open State */
-    .nav-links.active {
-        right: 0;
-    }
+  /* Open State */
+  .nav-links.active {
+    right: 0;
+  }
 
-    /* Animations for Links */
-    .nav-links li {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.4s ease;
-    }
+  /* Animations for Links */
+  .nav-links li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+  }
 
-    .nav-links.active li {
-        opacity: 1;
-        transform: translateY(0);
-        
-        &:nth-child(1) { transition-delay: 0.1s; }
-        &:nth-child(2) { transition-delay: 0.2s; }
-        &:nth-child(3) { transition-delay: 0.3s; }
-        &:nth-child(4) { transition-delay: 0.4s; }
-    }
+  .nav-links.active li {
+    opacity: 1;
+    transform: translateY(0);
 
-    /* Link Styling in Mobile */
-    .nav-links a {
-        font-size: 1.5rem;
-        color: #fff;
-        font-weight: 700;
-        letter-spacing: 1px;
+    &:nth-child(1) {
+      transition-delay: 0.1s;
     }
+    &:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+  }
 
-    /* Active Link in Mobile */
-    .nav-links a.active {
-        color: $accent;
-    }
+  /* Link Styling in Mobile */
+  .nav-links a {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
 
-    /* Convert Button back to Text Link style for Mobile Menu */
-    .btn-nav {
-        background: transparent;
-        color: #fff !important;
-        padding: 0;
-        font-size: 1.5rem;
-        border: none;
-        
-        &:hover {
-            color: $accent !important;
-            background: transparent;
-        }
-    }
+  /* Active Link in Mobile */
+  .nav-links a.active {
+    color: $accent;
+  }
 
-    /* --- HAMBURGER TRANSFORMATION (THE 'X') --- */
-    
-    /* When active, turn bars WHITE */
-    .hamburger.toggle .bar {
-        background-color: #fff;
-    }
+  /* Convert Button back to Text Link style for Mobile Menu */
+  .btn-nav {
+    background: transparent;
+    color: #fff !important;
+    padding: 0;
+    font-size: 1.5rem;
+    border: none;
 
-    /* Top Bar Rotates */
-    .hamburger.toggle .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
+    &:hover {
+      color: $accent !important;
+      background: transparent;
     }
+  }
 
-    /* Middle Bar Fades */
-    .hamburger.toggle .bar:nth-child(2) {
-        opacity: 0;
-    }
+  /* --- HAMBURGER TRANSFORMATION (THE 'X') --- */
 
-    /* Bottom Bar Rotates */
-    .hamburger.toggle .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
+  /* When active, turn bars WHITE */
+  .hamburger.toggle .bar {
+    background-color: #fff;
+  }
+
+  /* Top Bar Rotates */
+  .hamburger.toggle .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  /* Middle Bar Fades */
+  .hamburger.toggle .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* Bottom Bar Rotates */
+  .hamburger.toggle .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
 }
