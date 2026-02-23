@@ -1,109 +1,446 @@
-.about-us-section {
-  overflow: hidden;
-}
+/* --- ABOUT PAGE LAYOUT --- */
 .about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  /* Removed the side-by-side grid to allow full-width stacking */
+}
+
+/* --- SECTION 1: WHO WE ARE (Intro) --- */
+.about-intro {
+  max-width: 900px;
+  margin: 0 auto 60px; /* Center alignment */
+
+  .section-tag {
+    color: $accent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $text-light;
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+
+  @media screen and (max-width: 600px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* Core Strength & Accordion Grid */
+.intro-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-
-  .about-leadership {
-    width: 100%;
   }
 }
 
 .core-strength-box {
-  margin-top: 20px;
   background: #fff;
-  padding: 20px;
-  border-left: 4px solid $accent;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  border-left: 5px solid $accent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 0 8px 8px 0;
+
+  h4 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    color: $primary;
+  }
 
   ul li {
-    margin-bottom: 8px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    font-weight: 600;
+    color: $text-dark;
   }
 
   i {
     color: $accent;
   }
-}
 
-.leader-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.leader-icon {
-  width: 60px;
-  height: 60px;
-  background: rgba(13, 44, 86, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $primary;
-  font-size: 1.5rem;
-  flex-shrink: 0;
-}
-
-.leader-info {
-  h4 {
-    margin-bottom: 2px;
-    font-size: 1.1rem;
-  }
-
-  span {
-    font-size: 0.85rem;
-    color: $accent;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  p {
-    font-size: 0.9rem;
-    color: $text-light;
+  @media screen and (max-width: 600px) {
+    padding: 10px 20px;
   }
 }
 
-/* Accordion */
+/* Accordion Styling */
 .accordion {
-  margin-top: 30px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
 }
 .accordion-item {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 .accordion-header {
-  padding: 15px 0;
+  padding: 20px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   color: $primary;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #fff;
+  transition: background 0.3s;
+  &:hover {
+    background: $bg-light;
+  }
 }
 .accordion-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
+  transition: max-height 0.3s ease;
+  padding: 0 20px;
   color: $text-light;
-  font-size: 0.95rem;
+  line-height: 1.6;
 }
-.accordion-item.active .accordion-body {
-  max-height: 200px;
-  padding-bottom: 15px;
+.accordion-item.active {
+  .accordion-header {
+    color: $accent;
+    i {
+      transform: rotate(45deg);
+    }
+  }
+  .accordion-body {
+    max-height: 200px;
+    padding-bottom: 20px;
+  }
+}
+
+/* --- SECTION 2: PORTFOLIO (Key Projects) --- */
+.portfolio-section {
+  margin: 80px 0;
+  border-top: 1px solid #eee;
+  padding-top: 60px;
+
+  @media screen and (max-width: 600px) {
+    margin: 50px 0;
+    padding-top: unset;
+  }
+}
+
+.project-category {
+  margin-bottom: 50px;
+}
+
+.category-header {
+  margin-bottom: 25px;
+  h3 {
+    font-size: 1.8rem;
+    color: $primary;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    i {
+      color: $accent;
+    }
+  }
+  p {
+    font-size: 1.1rem;
+    color: $text-light;
+    border-left: 4px solid $accent;
+    padding-left: 15px;
+  }
+
+  @media screen and (max-width: 600px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+
+  .gallery-item {
+    height: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    &:hover img {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.featured-image {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 768px) {
+    height: 250px;
+  }
+}
+
+/* --- SECTION 3: LEADERSHIP (Redesigned) --- */
+.leadership-section {
+  background: linear-gradient(to bottom, #fff, $bg-light);
+  padding: 80px 0;
+  margin-top: 60px;
+
+  @media screen and (max-width: 600px) {
+    margin-top: unset;
+  }
+}
+
+.leadership-header {
+  text-align: center;
+  margin-bottom: 60px;
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: $primary;
+  }
+  p {
+    color: $accent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-bottom: 40px;
+    h2 {
+      font-size: 32px;
+    }
+  }
+}
+
+/* 1. PARTNERS GRID (Top 2 Cards) */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 850px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.leader-profile-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  text-align: center;
+  border-top: 5px solid $accent;
+  padding-bottom: 30px;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  .img-wrapper {
+    width: 140px;
+    height: 140px;
+    margin: 40px auto 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #f0f0f0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  .info-content {
+    padding: 0 25px;
+    h4 {
+      font-size: 1.3rem;
+      color: $primary;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .designation {
+      display: block;
+      color: $accent;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 0.95rem;
+      color: $text-light;
+      line-height: 1.6;
+    }
+  }
+}
+
+/* 2. FEATURED EXECUTIVE (Mr. Pushpendra - Separate Section) */
+.executive-spotlight {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  overflow: hidden;
+  border: 1px solid #eee;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.exec-image {
+  background: #f4f4f4;
+  height: 100%;
+  min-height: 400px;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  @media (max-width: 992px) {
+    height: 350px;
+    min-height: auto;
+  }
+}
+
+.exec-info {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h3 {
+    font-size: 2rem;
+    color: $primary;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+  .exec-role {
+    color: $accent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    display: block;
+  }
+
+  .bio-text {
+    font-size: 1rem;
+    color: $text-light;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  /* The "Previously Served" Box */
+  .past-roles-box {
+    background: rgba(13, 44, 86, 0.03); /* Light Primary Tint */
+    border-left: 4px solid $primary;
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    text-align: left; /* Always left align list */
+
+    @media (max-width: 992px) {
+      text-align: left;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    h6 {
+      color: $primary;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #444;
+
+        i {
+          color: $accent;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 30px 0px;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    .exec-role {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .bio-text {
+      font-size: 14px;
+    }
+
+    .past-roles-box {
+      ul {
+        li {
+          gap: 15px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }

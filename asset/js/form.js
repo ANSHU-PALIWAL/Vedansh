@@ -1,28 +1,56 @@
+// Function to show Toast Notifications (Keep this as is)
+function showToast(message, type) {
+    const container = document.getElementById("toast-container");
+    const toast = document.createElement("div");
+    const iconClass = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+    
+    toast.classList.add("toast", type);
+    toast.innerHTML = `<i class="fas ${iconClass}"></i><span class="toast-msg">${message}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        setTimeout(() => toast.remove(), 300);
+    }, 4000);
+}
+
+// Form Submission Logic
 document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const form = e.target;
-  const formData = new FormData();
+    const form = e.target;
+    const loaderOverlay = document.getElementById("global-loader-overlay");
+    const formData = new FormData();
 
-  formData.append("name", form.querySelector('input[type="text"]').value);
-  formData.append("email", form.querySelector('input[type="email"]').value);
-  formData.append("enquiryType", form.querySelector("select").value);
-  formData.append("message", form.querySelector("textarea").value);
+    // 1. Show Full Screen Loader
+    loaderOverlay.classList.add("active");
 
-  fetch(
-    "https://script.google.com/macros/s/AKfycbw48PB_-sy1KyJo1y5lAK-KoaT231efPUX5tAoBlD1y3mznNz7tdWy_nPJz2A8jLOWo/exec",
-    {
-      method: "POST",
-      body: formData,
-    },
-  )
+    // 2. Gather Data
+    formData.append("name", document.getElementById("name").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("enquiryType", document.getElementById("enquiryType").value);
+    formData.append("message", document.getElementById("message").value);
+
+    // 3. Send Request
+    fetch(
+        "https://script.google.com/macros/s/AKfycbw48PB_-sy1KyJo1y5lAK-KoaT231efPUX5tAoBlD1y3mznNz7tdWy_nPJz2A8jLOWo/exec",
+        {
+            method: "POST",
+            body: formData,
+        }
+    )
     .then((response) => response.text())
     .then((data) => {
-      alert("Message submitted successfully!");
-      form.reset();
+        showToast("Message sent successfully! We will contact you soon.", "success");
+        form.reset();
     })
     .catch((error) => {
-      alert("Submission failed.");
-      console.error(error);
+        showToast("Something went wrong. Please try again.", "error");
+        console.error(error);
+    })
+    .finally(() => {
+        // 4. Hide Full Screen Loader
+        setTimeout(() => {
+            loaderOverlay.classList.remove("active");
+        }, 500); 
     });
 });
