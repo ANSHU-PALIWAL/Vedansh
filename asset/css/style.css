@@ -1820,6 +1820,8 @@ footer {
 .project-card .project-info h3 {
   font-size: 1.4rem;
   margin: 5px 0;
+  color: white;
+  font-weight: 600;
 }
 .project-card .project-info p {
   font-size: 0.9rem;
