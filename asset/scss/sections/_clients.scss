@@ -1,0 +1,58 @@
+.clients-section {
+    padding: 60px 0;
+    background-color: #ffffff; // Pure white for a cleaner look
+    overflow: hidden;
+
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+}
+
+.marquee-content {
+    display: flex;
+    width: max-content;
+    animation: scrollMarquee 30s linear infinite;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.client-box {
+    width: 200px;
+    height: 100px;
+    margin: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent; 
+    padding: 10px;
+    transition: transform 0.3s ease;
+    
+    img {
+        max-width: 100%;
+        max-height: 80%;
+        object-fit: contain;
+        filter: none; 
+        opacity: 1;
+    }
+
+    &:hover {
+        transform: scale(1.05); // Subtle pop on hover
+    }
+
+    @media (max-width: 768px) {
+        width: 140px;
+        height: 70px;
+        margin: 0 15px;
+    }
+}
+
+@keyframes scrollMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}

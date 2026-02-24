@@ -44,3 +44,10 @@ a {
 .mb-4 {
   margin-bottom: 2rem;
 }
+
+.section-title {
+  font-size: 2rem;
+  @media screen and (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+}
