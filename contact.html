@@ -1,192 +1,191 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us | Vedansh Infra Services</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="./asset/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./asset/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./asset/img/favicons/favicon-16x16.png">
-    <link rel="shortcut icon" href="./asset/img/favicons/favicon.ico">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <link rel="stylesheet" href="./asset/css/style.css" />
-  </head>
-  <body>
-    <div id="preloader"><div class="loader"></div></div>
 
-    <div id="global-loader-overlay">
-      <div class="spinner-wrapper">
-        <div class="fs-spinner"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contact Us | Vedansh Infra Services</title>
+
+  <meta name="title" content="Contact Us | Vedansh Infra Services">
+  <meta name="description"
+    content="Vedansh Infra provides high-quality infrastructure development, construction, and engineering solutions. Building a better future with excellence and integrity.">
+  <meta name="keywords"
+    content="Vedansh Infra, construction company, infrastructure development, civil engineering, building contractors, infrastructure">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vedanshinfra.in/">
+  <meta property="og:title" content="Vedansh Infra | Building Excellence">
+  <meta property="og:description"
+    content="Premier infrastructure and construction services. Delivering quality projects with integrity.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./asset/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./asset/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./asset/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" href="./asset/img/favicons/favicon.ico">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="./asset/css/style.css" />
+</head>
+
+<body>
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <div id="global-loader-overlay">
+    <div class="spinner-wrapper">
+      <div class="fs-spinner"></div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <header class="header">
+    <div class="container nav-container">
+      <a href="/" class="logo">
+        <img src="./asset/img/vedansh-logo.webp " alt="Vedansh Infra Services - VIS" />
+      </a>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/services.html">Services & Equipment</a></li>
+          <li>
+            <a href="/contact.html" class="btn-nav active">Contact Us</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-title-section"
+    style="background-image: linear-gradient(rgba(13, 44, 86, 0.8), rgba(13, 44, 86, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000');">
+    <div class="container">
+      <h1>Get In Touch</h1>
+      <p>We are ready to build your next project</p>
+    </div>
+  </section>
+
+  <section id="locations" class="section map-section">
+    <div class="container">
+      <div class="section-header text-center reveal-bottom" style="margin-bottom: 2rem;">
+        <h2 class="section-title">Pan-India Presence</h2>
+        <p class="section-subtitle">
+          Executing Prestigious Projects Across Key Industrial Hubs
+        </p>
+      </div>
+      <div class="map-wrapper reveal">
+        <div id="map"></div>
+      </div>
+      <div class="map-stats text-center reveal-bottom">
+        <p>
+          <i class="fas fa-map-marked-alt"></i> Successfully mobilizing
+          resources across <strong>6+ States</strong>.
+        </p>
       </div>
     </div>
+  </section>
 
-    <div id="toast-container"></div>
-
-    <header class="header">
-      <div class="container nav-container">
-        <a href="index.html" class="logo">
-          <img
-            src="./asset/img/vedansh-logo.webp "
-            alt="Vedansh Infra Services - VIS"
-          />
-        </a>
-        <nav class="navbar">
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services & Equipment</a></li>
-            <li>
-              <a href="contact.html" class="btn-nav active">Contact Us</a>
-            </li>
-          </ul>
-          <div class="hamburger">
-            <span class="bar"></span><span class="bar"></span
-            ><span class="bar"></span>
+  <section id="contact" class="section contact-section bg-light">
+    <div class="container contact-container">
+      <div class="contact-info reveal-left">
+        <h4 class="section-tag">Reach Out</h4>
+        <h2 class="section-title">Contact Information</h2>
+        <div class="contact-details">
+          <div class="c-item">
+            <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h5>Registered Office</h5>
+              <p>
+                F-6, Block 1<br />Ambe Market, Near Rituraj Vatika<br />Chittorgarh,
+                Rajasthan – 312001
+              </p>
+            </div>
           </div>
-        </nav>
-      </div>
-    </header>
-
-    <section class="page-title-section" style="background-image: linear-gradient(rgba(13, 44, 86, 0.8), rgba(13, 44, 86, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000');">
-      <div class="container">
-        <h1>Get In Touch</h1>
-        <p>We are ready to build your next project</p>
-      </div>
-    </section>
-
-    <section id="locations" class="section map-section">
-      <div class="container">
-        <div class="section-header text-center reveal-bottom" style="margin-bottom: 2rem;">
-          <h2 class="section-title">Pan-India Presence</h2>
-          <p class="section-subtitle">
-            Executing Prestigious Projects Across Key Industrial Hubs
-          </p>
-        </div>
-        <div class="map-wrapper reveal">
-          <div id="map"></div>
-        </div>
-        <div class="map-stats text-center reveal-bottom">
-          <p>
-            <i class="fas fa-map-marked-alt"></i> Successfully mobilizing
-            resources across <strong>6+ States</strong>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section bg-light">
-      <div class="container contact-container">
-        <div class="contact-info reveal-left">
-          <h4 class="section-tag">Reach Out</h4>
-          <h2 class="section-title">Contact Information</h2>
-          <div class="contact-details">
-            <div class="c-item">
-              <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
-              <div>
-                <h5>Registered Office</h5>
-                <p>
-                  F-6, Block 1<br />Ambe Market, Near Rituraj Vatika<br />Chittorgarh,
-                  Rajasthan – 312001
-                </p>
-              </div>
+          <div class="c-item">
+            <div class="icon-box"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h5>Email</h5>
+              <p>
+                <a href="mailto:vedanshinfraservices@gmail.com">vedanshinfraservices@gmail.com</a>
+              </p>
             </div>
-            <div class="c-item">
-              <div class="icon-box"><i class="fas fa-envelope"></i></div>
-              <div>
-                <h5>Email</h5>
-                <p>
-                  <a href="mailto:vedanshinfraservices@gmail.com"
-                    >vedanshinfraservices@gmail.com</a
-                  >
-                </p>
+          </div>
+          <div class="c-item">
+            <div class="icon-box"><i class="fas fa-user-tie"></i></div>
+            <div>
+              <h5>Key Persons</h5>
+              <div class="person-contact">
+                <strong>Mr. Badri Lal Jat</strong>
+                <a href="tel:+919828012578">+91 98280 12578</a>
+                <a href="mailto:B.L.jat@vedanshinfra.in">B.L.jat@vedanshinfra.in</a>
               </div>
-            </div>
-            <div class="c-item">
-              <div class="icon-box"><i class="fas fa-user-tie"></i></div>
-              <div>
-                <h5>Key Persons</h5>
-                <div class="person-contact">
-                  <strong>Mr. Badri Lal Jat</strong>
-                  <a href="tel:+919828012578">+91 98280 12578</a>
-                  <a href="mailto:B.L.jat@vedanshinfra.in"
-                    >B.L.jat@vedanshinfra.in</a
-                  >
-                </div>
-                <div class="person-contact" style="margin-top: 15px">
-                  <strong>Mr. Chimnaram Choudhary</strong>
-                  <a href="tel:+919414109693">+91 94141 09693</a>
-                  <a href="mailto:cr.choudhary@vedanshinfra.in"
-                    >cr.choudhary@vedanshinfra.in</a
-                  >
-                </div>
+              <div class="person-contact" style="margin-top: 15px">
+                <strong>Mr. Chimnaram Choudhary</strong>
+                <a href="tel:+919414109693">+91 94141 09693</a>
+                <a href="mailto:cr.choudhary@vedanshinfra.in">cr.choudhary@vedanshinfra.in</a>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="contact-form-wrapper reveal-right">
-          <form class="contact-form" id="contactForm">
-            <h3>Send a Message</h3>
-            <div class="form-group">
-              <input type="text" id="name" required placeholder=" " />
-              <label for="name">Your Name</label>
-            </div>
-            <div class="form-group">
-              <input type="email" id="email" required placeholder=" " />
-              <label for="email">Your Email</label>
-            </div>
-            <div class="form-group">
-              <select id="enquiryType" required>
-                <option value="" disabled selected></option>
-                <option value="General">General Enquiry</option>
-                <option value="Project">New Project</option>
-                <option value="Vendor">Vendor/Supplier</option>
-              </select>
-              <label class="select-label">Enquiry Type</label>
-            </div>
-            <div class="form-group">
-              <textarea id="message" rows="4" required ></textarea>
-              <label for="message">Message</label>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-              <span class="btn-text">Submit Request</span>
-              <div class="btn-loader"></div>
-            </button>
-          </form>
-        </div>
       </div>
-    </section>
 
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
+      <div class="contact-form-wrapper reveal-right">
+        <form class="contact-form" id="contactForm">
+          <h3>Send a Message</h3>
+          <div class="form-group">
+            <input type="text" id="name" required placeholder=" " />
+            <label for="name">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" required placeholder=" " />
+            <label for="email">Your Email</label>
+          </div>
+          <div class="form-group">
+            <select id="enquiryType" required>
+              <option value="" disabled selected></option>
+              <option value="General">General Enquiry</option>
+              <option value="Project">New Project</option>
+              <option value="Vendor">Vendor/Supplier</option>
+            </select>
+            <label class="select-label">Enquiry Type</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" rows="4" required></textarea>
+            <label for="message">Message</label>
+          </div>
 
-    <footer>
-      <div class="container footer-content">
-        <p>&copy; 2026 Vedansh Infra Services. All Rights Reserved.</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+            <span class="btn-text">Submit Request</span>
+            <div class="btn-loader"></div>
+          </button>
+        </form>
       </div>
-    </footer>
-    <script src="./asset/js/script.js"></script>
-    <script src="./asset/js/form.js"></script>
-  </body>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2026 Vedansh Infra Services. All Rights Reserved.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="./asset/js/script.js"></script>
+  <script src="./asset/js/form.js"></script>
+</body>
+
 </html>
