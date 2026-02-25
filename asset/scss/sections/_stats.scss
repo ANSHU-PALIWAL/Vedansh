@@ -50,7 +50,8 @@
 
 .stat-text {
   h3,
-  span {
+  span,
+  .counter {
     font-size: 3rem;
     font-weight: 700;
     color: #fff;
@@ -73,7 +74,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  
   .stats-grid {
     gap: 20px 20px;
   }

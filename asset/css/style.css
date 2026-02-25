@@ -721,7 +721,8 @@ h5 {
 }
 
 .stat-text h3,
-.stat-text span {
+.stat-text span,
+.stat-text .counter {
   font-size: 3rem;
   font-weight: 700;
   color: #fff;
